@@ -51,12 +51,15 @@ class SettingsList extends StatelessWidget {
     }
 
     final brightness = calculateBrightness(context);
-
+    final extensionThemeData = Theme.of(context).extension<SettingsThemeData>();
     final themeData = getTheme(
       context: context,
       platform: platform,
       brightness: brightness,
-    ).merge(theme: brightness == Brightness.dark ? darkTheme : lightTheme);
+    ).merge(
+      theme: (brightness == Brightness.dark ? darkTheme : lightTheme) ??
+          extensionThemeData,
+    );
 
     return Container(
       color: themeData.settingsListBackground,

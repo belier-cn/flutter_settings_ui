@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-/// Since we cannot extend targetPlatfom, create own enum.
+/// Since we cannot extend targetPlatform, create own enum.
 enum DevicePlatform {
   /// Android: <https://www.android.com/>
   android,

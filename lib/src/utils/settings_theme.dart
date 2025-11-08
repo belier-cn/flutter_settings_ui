@@ -22,7 +22,7 @@ class SettingsTheme extends InheritedWidget {
   }
 }
 
-class SettingsThemeData {
+class SettingsThemeData extends ThemeExtension<SettingsThemeData> {
   const SettingsThemeData({
     this.trailingTextColor,
     this.settingsListBackground,
@@ -69,6 +69,7 @@ class SettingsThemeData {
     );
   }
 
+  @override
   SettingsThemeData copyWith({
     Color? settingsListBackground,
     Color? trailingTextColor,
@@ -100,5 +101,13 @@ class SettingsThemeData {
       settingsTileTextColor:
           settingsTileTextColor ?? this.settingsTileTextColor,
     );
+  }
+
+  @override
+  ThemeExtension<SettingsThemeData> lerp(
+    covariant ThemeExtension<SettingsThemeData>? other,
+    double t,
+  ) {
+    return this;
   }
 }
